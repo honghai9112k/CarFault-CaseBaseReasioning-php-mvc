@@ -2,49 +2,62 @@
     /* background-color: #bfe6fc; */
     color: #124061;
 }
+
 .form-container {
     width: 840px;
     margin: 0 auto;
     text-align: center;
 }
+
 #header {
     padding: 50px 0;
 }
+
 .headerText {
     margin: 0;
     text-align: center;
     font-weight: 600;
 }
-.thongtin, .hethong {
+
+.thongtin,
+.hethong {
     background-color: #dff3ff;
     padding: 30px 34px;
     margin: 0 0 20px 0;
-    
+
 }
+
 .hethong {
     min-height: 580px;
 }
+
 .thongtin-header-text {
     background-color: #dff3ff;
     text-align: start;
 }
+
 .tab-content {
     margin: 40px 0 0;
 }
+
 select {
     margin: 20px 0;
 }
+
 .tab__content {
     background-color: #dff3ff;
 }
+
 .btn-container {
     margin-bottom: 40px;
 }
+
 .header-text {
     text-align: start;
     background-color: #dff3ff;
     margin-bottom: 20px;
 }
+
 .ghichuTxt {
     background-color: #dff3ff;
     font-size: 14px;
@@ -53,4 +66,44 @@ select {
 
 .modal-body {
     min-height: 340px;
+}
+
+.text-result {
+    margin-left: 10px;
+    font-size: 16px;
+
+}
+
+.text-result-header {
+    font-size: 18px;
+}
+
+.error1,
+.error2,
+.error3 {
+    text-align: start;
+    margin: -48px 0 4px 94px;
+    font-size: 14px;
+    position: absolute;
+}
+
+.inputTxt {
+    position: relative;
+}
+
+.undisable {
+    display: block !important;
+}
+
+.disable {
+    display: none;
+}
+
+.khac-container {
+    margin: 20px 0 0 10px !important;
+    height: 32px;
+    width: 36%;
+}
+.w-64 {
+    width: calc(64% - 10px ) !important;
 }

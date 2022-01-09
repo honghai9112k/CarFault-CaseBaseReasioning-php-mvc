@@ -13,12 +13,14 @@ class Ajax extends Controller
         $mangText = $_POST['mangText'];
 
         $resultPhanh = $this->phanhmodel->ResultPhanh($mangText, $mangPhanh);
-        echo "Lỗi tại hệ thống Phanh: ";
         // foreach($mangPhanh as $key => $value) {
         //     echo $value;
         // }
-        echo ($resultPhanh['nguyenhan']);
-        echo 'và cách sửa chữa';
-        echo ($resultPhanh['suachua']);
+
+        require_once "./mvc/views/pages/result.php";
+    }
+    public function GetError()
+    {
+        echo"Vui lòng điền đẩy đủ các trường gắn dấu *.!!!";
     }
 }
