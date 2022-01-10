@@ -50,6 +50,10 @@ class PhanhModel extends DB
         $rs = mysqli_fetch_assoc($query);
         return $rs;
     }
+    // Lưu dữ liệu người dùng vào csdl log table
+    public function SaveNewCase() {
+
+    }
     // So sánh đầu vào với các case và đưa ra kết luận.
     public function ResultPhanh($mangTxt, $mangPhanh)
     {

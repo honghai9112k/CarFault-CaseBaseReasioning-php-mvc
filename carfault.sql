@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1:4306
--- Thời gian đã tạo: Th1 09, 2022 lúc 10:23 AM
+-- Thời gian đã tạo: Th1 09, 2022 lúc 04:51 PM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 8.0.12
 
@@ -277,6 +277,17 @@ INSERT INTO `ketluan` (`id`, `hethong`, `nguyenhan`, `suachua`) VALUES
 (62, 'Chuyển động', 'Hệ thống treo đã bị hỏng hoặc ăn mòn', 'Thay lốp, thay lò xo treo'),
 (63, 'Chuyển động', 'Hệ dẫn động cầu trước do độ chụm của bánh xe chưa chuẩn', 'Thay lốp, Chỉnh lại hệ thống dẫn động cầu trước'),
 (64, 'Chuyển động', 'Thường xuyên đi vào ổ gà, ổ vịt, đường xấu', 'Thay lốp');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `log`
+--
+
+CREATE TABLE `log` (
+  `id` int(11) NOT NULL,
+  `mota` varchar(2000) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -750,6 +761,12 @@ ALTER TABLE `ketluan`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Chỉ mục cho bảng `log`
+--
+ALTER TABLE `log`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Chỉ mục cho bảng `motacase`
 --
 ALTER TABLE `motacase`
@@ -778,6 +795,12 @@ ALTER TABLE `cautraloi`
 --
 ALTER TABLE `ketluan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+
+--
+-- AUTO_INCREMENT cho bảng `log`
+--
+ALTER TABLE `log`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `motacase`

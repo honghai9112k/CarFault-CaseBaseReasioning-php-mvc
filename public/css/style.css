@@ -104,6 +104,16 @@ select {
     height: 32px;
     width: 36%;
 }
+
 .w-64 {
-    width: calc(64% - 10px ) !important;
+    width: calc(64% - 10px) !important;
+}
+
+.f-12 {
+    font-size: 12px;
+}
+.khac-error-container {
+
+    text-align: start;
+    margin: -18px 0 16px 0;
 }

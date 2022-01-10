@@ -39,7 +39,7 @@ class DongCoModel extends DB
         $query = mysqli_query($this->con, $qr);
         return $query;
     }
-    public function CountCauHoiPhanh()
+    public function CountCauHoiDongCo()
     {
         $qr = "SELECT COUNT(motacase.idcautraloi)AS'socauhoi' FROM motacase WHERE motacase.idcase='24';";
         $query = mysqli_query($this->con, $qr);
@@ -50,7 +50,7 @@ class DongCoModel extends DB
     public function ResultDongCo($mangTxt, $mangDongCo)
     {
         $listIdCase = $this->GetListIdCaseDongCo(); //24 25 26... 27
-        $countcauhoi = $this->CountCauHoiPhanh()['socauhoi']; //8
+        $countcauhoi = $this->CountCauHoiDongCo()['socauhoi']; //8
         $thuTuCauHoiUser = array(1, 2, 3, 19, 8, 9, 10, 11);
 
         $resultIdCase = 0;
@@ -82,7 +82,7 @@ class DongCoModel extends DB
                 $dotuongdongText = $dotuongdong;
             }
         }
-        if ($dotuongdongText < 8) {
+        if ($dotuongdongText/29 < 0.5) {
             return false;
         }
         $result = $this->GetResultByIdCase($resultIdCase);
