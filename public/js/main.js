@@ -77,7 +77,8 @@ $(document).ready(function () {
                     $.post("./Ajax/GetResult",
                         {
                             mangText: mangText, mangPhanh: mangPhanh, mangDongCo: mangDongCo,
-                            mangDien: mangDien, mangKhiThai: mangKhiThai, mangTruyenLuc: mangTruyenLuc, mangChuyenDong: mangChuyenDong, khacBigTxt: khacBigTxt
+                            mangDien: mangDien, mangKhiThai: mangKhiThai, mangTruyenLuc: mangTruyenLuc,
+                            mangChuyenDong: mangChuyenDong, khacBigTxt: khacBigTxt
                         },
                         function (data) {
                             $("#result-txt").html(data);
@@ -86,10 +87,6 @@ $(document).ready(function () {
                     $("#result-txt").html('Vui lòng điền đẩy đủ các trường gắn dấu *.!!!');
                 }
 
-            } else if (khacBigTxt !== "") {
-                $.post("./Ajax/SaveKhac", { mangText: mangText, khacBigTxt: khacBigTxt }, function (data) {
-                    $("#result-txt").html('Lỗi của bạn hiện sắp được lưu vào hệ thống. Quay lại vào 1, 2 ngày tới (sau khi chuyên gia cập nhật lỗi đó vào hệ thống) để kiểm tra lại.');
-                });
             } else {
                 $("#result-txt").html('Vui lòng điền đẩy đủ các trường gắn dấu *.!!!');
             }

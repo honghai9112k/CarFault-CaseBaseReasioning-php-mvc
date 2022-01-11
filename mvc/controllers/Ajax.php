@@ -11,6 +11,8 @@ class Ajax extends Controller
         $this->khithaimodel = $this->model("KhiThaiModel");
         $this->truyenlucmodel = $this->model("TruyenLucModel");
         $this->chuyendongmodel = $this->model("ChuyenDongModel");
+
+        $this->logmodel = $this->model("LogModel");
     }
     public function GetResult()
     {
@@ -34,6 +36,8 @@ class Ajax extends Controller
         // foreach($mangPhanh as $key => $value) {
         //     echo $value;
         // }
+
+        $checklogmodel = $this->logmodel->SaveLog($mangText, $mangPhanh, $mangDongCo, $mangDien, $mangKhiThai, $mangTruyenLuc, $mangChuyenDong, $resultKhac);
 
         require_once "./mvc/views/pages/result.php";
     }

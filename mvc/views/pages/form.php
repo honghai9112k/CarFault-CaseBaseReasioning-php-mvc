@@ -50,10 +50,10 @@ $cauTraLoiChuyenDong = (!empty($data['CauTraLoiChuyenDong'])) ? $data['CauTraLoi
                             <option value="<?php echo $value['id']; ?>">
                                 <?php echo $value['cautraloi']; ?>
                             </option>
-                            <?php } ?>
-                            <option value="0">- Khác -</option>
-                        </select>
-                    </div>
+                        <?php } ?>
+                        <option value="0">- Khác -</option>
+                    </select>
+                </div>
             </div>
             <div class="hethong">
                 <div class="header-text">
