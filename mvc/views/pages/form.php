@@ -1,4 +1,5 @@
 <?php
+$cauTraLoiAll = (!empty($data['CauTraLoiAll'])) ? $data['CauTraLoiAll'] : [];
 $cauTraLoiPhanh = (!empty($data['CauTraLoiPhanh'])) ? $data['CauTraLoiPhanh'] : [];
 $cauTraLoiDien = (!empty($data['CauTraLoiDien'])) ? $data['CauTraLoiDien'] : [];
 $cauTraLoiDongCo = (!empty($data['CauTraLoiDongCo'])) ? $data['CauTraLoiDongCo'] : [];
@@ -37,7 +38,23 @@ $cauTraLoiChuyenDong = (!empty($data['CauTraLoiChuyenDong'])) ? $data['CauTraLoi
                 </div>
                 <div class="error3 text-danger"></div>
             </div>
-
+            <div class="thongtin" style="height: 200px;">
+                <div class="header-text">
+                    <h3 class="thongtin-header-text">Chọn lỗi bạn ô tô bạn gặp phải.</h3>
+                </div>
+                <div class="input-group d-flex w-64">
+                    <select class="form-select loi-select" aria-label="Default select example" id="trieuchunghethong" name="trieuchunghethong">
+                        <option value="">- Triệu chứng ô tô của bạn -</option>
+                        <?php
+                        foreach ($cauTraLoiAll as $key => $value) { ?>
+                            <option value="<?php echo $value['id']; ?>">
+                                <?php echo $value['cautraloi']; ?>
+                            </option>
+                            <?php } ?>
+                            <option value="0">- Khác -</option>
+                        </select>
+                    </div>
+            </div>
             <div class="hethong">
                 <div class="header-text">
                     <h2 class="thongtin-header-text">Hệ thống</h2>
@@ -48,9 +65,9 @@ $cauTraLoiChuyenDong = (!empty($data['CauTraLoiChuyenDong'])) ? $data['CauTraLoi
                         <button class="nav-link active" style="flex-grow: 1;" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#tabPhanh" type="button" role="tab" aria-controls="tabPhanh" aria-selected="true">Phanh<span class=" text-danger f-12">(4)</span></button>
                         <button class="nav-link" style="flex-grow: 1;" id="dongco-tab" data-bs-toggle="tab" data-bs-target="#tabDongCo" type="button" role="tab" aria-controls="tabDongCo" aria-selected="false">Động Cơ<span class=" text-danger f-12">(5)</span></button>
                         <button class="nav-link" style="flex-grow: 1;" id="dien-tab" data-bs-toggle="tab" data-bs-target="#tabdien" type="button" role="tab" aria-controls="tabdien" aria-selected="false">Điện<span class=" text-danger f-12">(6)</span></button>
-                        <button class="nav-link" style="flex-grow: 1;" id="khiThai-tab" data-bs-toggle="tab" data-bs-target="#tabkhiThai" type="button" role="tab" aria-controls="tabkhiThai" aria-selected="false">Khí Thải<span class=" text-danger f-12">(1)</span></button>
-                        <button class="nav-link" style="flex-grow: 1;" id="truyenLuc-tab" data-bs-toggle="tab" data-bs-target="#tabtruyenLuc" type="button" role="tab" aria-controls="tabtruyenLuc" aria-selected="false">Truyền Lực<span class=" text-danger f-12">(1)</span></button>
-                        <button class="nav-link" style="flex-grow: 1;" id="chuyenDong-tab" data-bs-toggle="tab" data-bs-target="#tabchuyenDong" type="button" role="tab" aria-controls="tabchuyenDong" aria-selected="false">Chuyển Động<span class=" text-danger f-12">(4)</span></button>
+                        <button class="nav-link" style="flex-grow: 1;" id="khithai-tab" data-bs-toggle="tab" data-bs-target="#tabkhiThai" type="button" role="tab" aria-controls="tabkhiThai" aria-selected="false">Khí Thải<span class=" text-danger f-12">(1)</span></button>
+                        <button class="nav-link" style="flex-grow: 1;" id="truyenluc-tab" data-bs-toggle="tab" data-bs-target="#tabtruyenLuc" type="button" role="tab" aria-controls="tabtruyenLuc" aria-selected="false">Truyền Lực<span class=" text-danger f-12">(1)</span></button>
+                        <button class="nav-link" style="flex-grow: 1;" id="chuyendong-tab" data-bs-toggle="tab" data-bs-target="#tabchuyenDong" type="button" role="tab" aria-controls="tabchuyenDong" aria-selected="false">Chuyển Động<span class=" text-danger f-12">(4)</span></button>
                         <button class="nav-link" style="flex-grow: 1;" id="khac-tab" data-bs-toggle="tab" data-bs-target="#tabkhacbig" type="button" role="tab" aria-controls="tabkhac" aria-selected="false">Khác</button>
                     </div>
                 </nav>
@@ -251,7 +268,7 @@ $cauTraLoiChuyenDong = (!empty($data['CauTraLoiChuyenDong'])) ? $data['CauTraLoi
                                 </div> -->
                             </div>
                             <div class="form-disable-dien">
-                            <div class="input-group d-flex w-64">
+                                <div class="input-group d-flex w-64">
                                     <select class="form-select disable" aria-label="Default select example" id="tuoithoacquydien" name="tuoithoacquydien">
                                         <option value="0">- Tuổi thọ acquy<span class=" text-danger ">*</span></option>
                                         <?php
@@ -364,7 +381,7 @@ $cauTraLoiChuyenDong = (!empty($data['CauTraLoiChuyenDong'])) ? $data['CauTraLoi
                         </div>
                     </div>
                     <!-- Tab Khí Thải -->
-                    <div class="tab-pane " id="tabkhiThai" role="tabpanel" aria-labelledby="khiThai-tab">
+                    <div class="tab-pane " id="tabkhiThai" role="tabpanel" aria-labelledby="khithai-tab">
                         <div class="tab__content">
                             <div class="input-group d-flex w-64">
                                 <select class="form-select" aria-label="Default select example" id="trieuchungkhithai" name="trieuchungkhithai">
@@ -392,7 +409,7 @@ $cauTraLoiChuyenDong = (!empty($data['CauTraLoiChuyenDong'])) ? $data['CauTraLoi
                         </div>
                     </div>
                     <!-- Tab Truyền lực -->
-                    <div class="tab-pane " id="tabtruyenLuc" role="tabpanel" aria-labelledby="truyenLuc-tab">
+                    <div class="tab-pane " id="tabtruyenLuc" role="tabpanel" aria-labelledby="truyenluc-tab">
                         <div class="tab__content">
                             <div class="input-group d-flex w-64">
                                 <select class="form-select" aria-label="Default select example" id="trieuchungtruyenluc" name="trieuchungototruyenluc">
@@ -420,7 +437,7 @@ $cauTraLoiChuyenDong = (!empty($data['CauTraLoiChuyenDong'])) ? $data['CauTraLoi
                         </div>
                     </div>
                     <!-- Tab Chuyển động -->
-                    <div class="tab-pane" id="tabchuyenDong" role="tabpanel" aria-labelledby="chuyenDong-tab">
+                    <div class="tab-pane" id="tabchuyenDong" role="tabpanel" aria-labelledby="chuyendong-tab">
                         <div class="tab__content">
                             <div class="input-group d-flex w-64">
                                 <select class="form-select " aria-label="Default select example" id="trieuchungchuyendong" name="trieuchungchuyendong">
@@ -518,7 +535,7 @@ $cauTraLoiChuyenDong = (!empty($data['CauTraLoiChuyenDong'])) ? $data['CauTraLoi
                     <!-- Tab khác -->
                     <div class="tab-pane " id="tabkhacbig" role="tabpanel" aria-labelledby="khac-tab">
                         <div class="form-floating">
-                            <textarea class="form-control" placeholder="Các triệu chứng khác.(Nếu có)" id="khacBig" style="min-height: 200px;"></textarea>
+                            <textarea class="form-control" id="khacBigTxt" placeholder="Các triệu chứng khác.(Nếu có)" id="khacBig" style="min-height: 200px;"></textarea>
                             <label for="khacBig">Các triệu chứng khác.</label>
                         </div>
                     </div>
@@ -533,7 +550,7 @@ $cauTraLoiChuyenDong = (!empty($data['CauTraLoiChuyenDong'])) ? $data['CauTraLoi
 
 </div>
 <!-- Modal -->
-<div class="modal fade" id="ketluanmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade " id="ketluanmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -544,7 +561,7 @@ $cauTraLoiChuyenDong = (!empty($data['CauTraLoiChuyenDong'])) ? $data['CauTraLoi
                 123
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
                 <button type="button" class="btn btn-primary" onclick="reload()">Thử Lại</button>
             </div>
         </div>

@@ -18,6 +18,7 @@ class Home extends Controller{
         $cauTraLoiKhiThai = $khithai->GetCauTraLoiKhiThai();
         $cauTraLoiTruyenLuc = $truyenluc->GetCauTraLoiTruyenLuc();
         $cauTraLoiChuyenDong = $chuyendong->GetCauTraLoiChuyenDong();
+        $cauTraLoiAll = $chuyendong->GetCauTraLoiAll();
 
         // Call Views
         $this->view("main", [
@@ -28,6 +29,7 @@ class Home extends Controller{
             "CauTraLoiKhiThai"=>$cauTraLoiKhiThai,
             "CauTraLoiTruyenLuc"=>$cauTraLoiTruyenLuc,
             "CauTraLoiChuyenDong"=>$cauTraLoiChuyenDong,
+            "CauTraLoiAll"=>$cauTraLoiAll,
         ]);
     }
 

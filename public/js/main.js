@@ -52,47 +52,85 @@ $(document).ready(function () {
         var trieuchungchuyendongkhac4 = $("#trieuchungchuyendongkhac4").val().trim();
 
         var mangChuyenDong = [trieuchungchuyendong, diduongthang, khungxe, tinhtranglop, trieuchungchuyendongkhac4];
-        // check validate
-        var checkPhanh = (trieuchungphanh !== "0" && tuoithophanh !== "0" && khithaphanh !== "0" && mucdauphanh !== "0");
-        var check = true;
-        // Xử lý dữ liệu
-        if (hangxeTxt && tenxeTxt && doixeTxt && (
-            (trieuchungphanh !== "0" && tuoithophanh !== "0" && khithaphanh !== "0" && mucdauphanh !== "0") ||
-            (trieuchungdongco !== "0" && tuoithoacquy !== "0" && tuoithobugi !== "0" && tiengdongco !== "0" && mucxang !== "0") ||
-            (trieuchungkhithai !== "0" && mangKhiThai !== "0") ||
-            (trieuchungtruyenluc !== "0" && mangTruyenLuc !== "0") ||
-            (trieuchungchuyendong !== "0" && diduongthang !== "0" && khungxe !== "0" && tinhtranglop !== "0") ||
-            (trieuchungdien !== "0" && tuoithoacquydien !== "0" && tuoithomayphat !== "0" && trieuchungdenpha !== "0" && ocapdien !== "0" && tiengkeulucde !== "0")
-        )) {
-            
-            if ((trieuchungphanh !== "0" && (tuoithophanh === "0" || khithaphanh === "0" || mucdauphanh === "0")) ||
-             (trieuchungdongco !== "0" && (tuoithoacquy === "0" || tuoithobugi === "0" || tiengdongco === "0" || mucxang === "0"))) {
-                check = false;
-            }
-            alert(check);
-            if (check===true) {
-                $.post("./Ajax/GetResult",
-                    {
-                        mangText: mangText, mangPhanh: mangPhanh, mangDongCo: mangDongCo,
-                        mangDien: mangDien, mangKhiThai: mangKhiThai, mangTruyenLuc: mangTruyenLuc, mangChuyenDong: mangChuyenDong
-                    },
-                    function (data) {
-                        $("#result-txt").html(data);
-                    })
-            }
+        // Tab Khác 
+        var khacBigTxt = $("#khacBigTxt").val().trim();
 
-        } else {
+        // check validate
+        var check = true;
+
+        // Xử lý dữ liệu
+        if (hangxeTxt && tenxeTxt && doixeTxt) {// validate 3 câu hỏi 1 2 3
+
+            if (trieuchungphanh !== "0" || trieuchungdongco !== "0" || trieuchungkhithai !== "0"
+                || trieuchungtruyenluc !== "0" || trieuchungchuyendong !== "0" || trieuchungdien !== "0" || khacBigTxt !== ""
+            ) {
+                if ((trieuchungphanh !== "0" && (tuoithophanh === "0" || khithaphanh === "0" || mucdauphanh === "0")) ||
+                    (trieuchungdongco !== "0" && (tuoithoacquy === "0" || tuoithobugi === "0" || tiengdongco === "0" || mucxang === "0")) ||
+                    // (trieuchungkhithai !== "0") ||
+                    // (trieuchungtruyenluc !== "0") ||
+                    (trieuchungchuyendong !== "0" && (diduongthang === "0" && khungxe === "0" && tinhtranglop === "0")) ||
+                    (trieuchungdien !== "0" && (tuoithoacquydien === "0" && tuoithomayphat === "0" && trieuchungdenpha === "0" && ocapdien === "0" && tiengkeulucde === "0"))
+                ) {
+                    check = false;
+                }
+                if (check) {
+                    $.post("./Ajax/GetResult",
+                        {
+                            mangText: mangText, mangPhanh: mangPhanh, mangDongCo: mangDongCo,
+                            mangDien: mangDien, mangKhiThai: mangKhiThai, mangTruyenLuc: mangTruyenLuc, mangChuyenDong: mangChuyenDong, khacBigTxt: khacBigTxt
+                        },
+                        function (data) {
+                            $("#result-txt").html(data);
+                        })
+                } else {
+                    $("#result-txt").html('Vui lòng điền đẩy đủ các trường gắn dấu *.!!!');
+                }
+
+            } else if (khacBigTxt !== "") {
+                $.post("./Ajax/SaveKhac", { mangText: mangText, khacBigTxt: khacBigTxt }, function (data) {
+                    $("#result-txt").html('Lỗi của bạn hiện sắp được lưu vào hệ thống. Quay lại vào 1, 2 ngày tới (sau khi chuyên gia cập nhật lỗi đó vào hệ thống) để kiểm tra lại.');
+                });
+            } else {
+                $("#result-txt").html('Vui lòng điền đẩy đủ các trường gắn dấu *.!!!');
+            }
+        }
+        else {
             if (!hangxeTxt) ($(".error1").html('Vui lòng điền đầy đủ trường này.'));
             if (!tenxeTxt) ($(".error2").html('Vui lòng điền đầy đủ trường này.'));
             if (!doixeTxt) ($(".error3").html('Vui lòng điền đầy đủ trường này.'));
-            $.post("./Ajax/GetError", {}, function (data) {
-                $("#result-txt").html(data);
-            })
+            $("#result-txt").html('Vui lòng điền đẩy đủ các trường gắn dấu *.!!!');
         }
     });
 });
 
 $(document).ready(function () {
+    $("#trieuchunghethong").change(function () {
+        var idCauTraLoi = Number($('#trieuchunghethong').val().trim());
+        console.log(idCauTraLoi);
+
+        if (idCauTraLoi == 0) {
+            $("#khac-tab").click();
+        } else {
+            $.post("./Ajax/GetHeThong", { idCauTraLoi: idCauTraLoi }, function (data) {
+                // $('.nav-link').removeClass('active');
+                // $(data).attr('aria-selected',false);
+                var idBtn = "#" + data + "-tab";
+                $(idBtn).click();
+
+                $.post("./Ajax/GatCauTraLoi", { idCauTraLoi: idCauTraLoi }, function (dt) {
+                    $(`option[value='${dt}']`).prop('selected', true);
+
+                    setTimeout(function () {
+                        var classhethong = ".form-disable-" + data + ">div>select";
+                        $(classhethong).addClass("undisable");
+                    }, 500);
+
+                });
+            })
+        }
+
+    });
+
     $("#trieuchungphanh").change(function () {
         loadCauHoiPhanh();
     });
@@ -114,19 +152,19 @@ $(document).ready(function () {
         loadCauHoiDien();
     });
 
-    $("#trieuchungkhithai").change(function () {
-        loadCauHoiKhiThai();
-    });
-    $("#trieuchungkhithai").keyup(function () {
-        loadCauHoiKhiThai();
-    });
+    // $("#trieuchungkhithai").change(function () {
+    //     loadCauHoiKhiThai();
+    // });
+    // $("#trieuchungkhithai").keyup(function () {
+    //     loadCauHoiKhiThai();
+    // });
 
-    $("#trieuchungtruyenluc").change(function () {
-        loadCauHoiTruyenLuc();
-    });
-    $("#trieuchungtruyenluc").keyup(function () {
-        loadCauHoiTruyenLuc();
-    });
+    // $("#trieuchungtruyenluc").change(function () {
+    //     loadCauHoiTruyenLuc();
+    // });
+    // $("#trieuchungtruyenluc").keyup(function () {
+    //     loadCauHoiTruyenLuc();
+    // });
 
     $("#trieuchungchuyendong").change(function () {
         loadCauHoiChuyenDong();
@@ -176,3 +214,4 @@ function loadCauHoiChuyenDong() {
 function reload() {
     location.reload();
 }
+

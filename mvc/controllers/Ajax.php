@@ -21,8 +21,10 @@ class Ajax extends Controller
         $mangKhiThai = $_POST['mangKhiThai'];
         $mangTruyenLuc = $_POST['mangTruyenLuc'];
         $mangChuyenDong = $_POST['mangChuyenDong'];
+        $resultKhac = $_POST['khacBigTxt'];
 
         $resultPhanh = $this->phanhmodel->ResultPhanh($mangText, $mangPhanh);
+
         $resultDongCo = $this->dongcomodel->ResultDongCo($mangText, $mangDongCo);
         $resultDien = $this->dienmodel->ResultDien($mangText, $mangDien);
         $resultKhiThai = $this->khithaimodel->ResultKhiThai($mangText, $mangKhiThai);
@@ -37,6 +39,35 @@ class Ajax extends Controller
     }
     public function GetError()
     {
-        echo"Vui lòng điền đẩy đủ các trường gắn dấu *.!!!";
+        echo "Vui lòng điền đẩy đủ các trường gắn dấu *.!!!";
+    }
+    public function GetHeThong()
+    {
+        $idCauTraLoi = $_POST['idCauTraLoi'];
+        $tenHeThong = $this->chuyendongmodel->GetHeThongByIdCauTraLoi($idCauTraLoi);
+        if ($tenHeThong == 'Phanh') {
+            echo "phanh";
+        }
+        if ($tenHeThong == 'Động cơ') {
+            echo ("dongco");
+        }
+        if ($tenHeThong == 'Điện') {
+            echo ("dien");
+        }
+        if ($tenHeThong == 'Chuyển động') {
+            echo ("chuyendong");
+        }
+        if ($tenHeThong == 'Truyền lực') {
+            echo ("truyenluc");
+        }
+        if ($tenHeThong == 'Khí thải') {
+            echo ("khithai");
+        }
+    }
+    public function GatCauTraLoi()
+    {
+        $idCauTraLoi = $_POST['idCauTraLoi'];
+        $cautraloi = $this->chuyendongmodel->GetCauTraLoiByIdCauTraLoi($idCauTraLoi);
+        echo ($cautraloi);
     }
 }

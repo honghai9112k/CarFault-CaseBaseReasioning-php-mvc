@@ -14,7 +14,8 @@
 <!-- css -->
 <link rel="stylesheet" href="http://localhost/carFault-CaseBaseReasioning-php-mvc/public/css/style.css">
 </head>
-<body>
+<body >
+    <!-- class="modal-open" -->
     <div id="header">
         <h2 class="headerText">Hệ Thống Chẩn Đoán Lỗi Xe Ô Tô <i class="fas fa-tools"></i></h2>
     </div>

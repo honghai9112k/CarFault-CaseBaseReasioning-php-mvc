@@ -1,7 +1,26 @@
 <?php
 class ChuyenDongModel extends DB
 {
-
+    public function GetHeThongByIdCauTraLoi($idcautraloi)
+    {
+        $qr = "SELECT ketluan.hethong FROM ketluan,cautraloi,motacase WHERE ketluan.id=motacase.idcase AND motacase.idcautraloi=cautraloi.id AND cautraloi.id = '$idcautraloi';";
+        $query = mysqli_query($this->con, $qr);
+        $rs = mysqli_fetch_assoc($query);
+        return $rs['hethong'];
+    }
+    public function GetCauTraLoiByIdCauTraLoi($idcautraloi)
+    {
+        $qr = "SELECT cautraloi.cautraloi FROM `cautraloi` WHERE cautraloi.id='$idcautraloi';";
+        $query = mysqli_query($this->con, $qr);
+        $rs = mysqli_fetch_assoc($query);
+        return $rs['cautraloi'];
+    }
+    public function GetCauTraLoiAll()
+    {
+        $qr = "SELECT * FROM `cautraloi` WHERE cautraloi.idcauhoi>=19 AND idcauhoi<=23 OR idcauhoi=4 ";
+        $query = mysqli_query($this->con, $qr);
+        return $query;
+    }
     public function GetCauTraLoiChuyenDong()
     {
         $qr = "SELECT * FROM `cautraloi` WHERE cautraloi.idcauhoi>=16 AND idcauhoi<=18 OR idcauhoi=23";
@@ -11,14 +30,14 @@ class ChuyenDongModel extends DB
 
     public function GetResultByIdCase($idcase)
     {
-        $qr = "SELECT ketluan.* FROM `ketluan` WHERE ketluan.hethong='Chuyển Động' AND ketluan.id='$idcase';";
+        $qr = "SELECT ketluan.* FROM `ketluan` WHERE ketluan.hethong='Chuyển động' AND ketluan.id='$idcase';";
         $query = mysqli_query($this->con, $qr);
         $rs = mysqli_fetch_assoc($query);
         return $rs;
     }
     public function CountCaseChuyenDong()
     {
-        $qr = "SELECT COUNT(ketluan.id) FROM ketluan WHERE ketluan.hethong='Chuyển Động';";
+        $qr = "SELECT COUNT(ketluan.id) FROM ketluan WHERE ketluan.hethong='Chuyển động';";
         $query = mysqli_query($this->con, $qr);
         $rs = mysqli_fetch_assoc($query);
         return $rs;
@@ -41,7 +60,7 @@ class ChuyenDongModel extends DB
     }
     public function CountCauHoiChuyenDong()
     {
-        $qr = "SELECT COUNT(motacase.idcautraloi)AS'socauhoi' FROM motacase WHERE motacase.idcase='50';";
+        $qr = "SELECT COUNT(motacase.idcautraloi)AS'socauhoi' FROM motacase WHERE motacase.idcase='56';";
         $query = mysqli_query($this->con, $qr);
         $rs = mysqli_fetch_assoc($query);
         return $rs;
@@ -82,8 +101,8 @@ class ChuyenDongModel extends DB
                 $dotuongdongText = $dotuongdong;
             }
         }
-        if ($dotuongdongText/24 < 0.5) {
-            return false;
+        if ($dotuongdongText / 24 < 0.3 ) {
+            return "0";
         }
         $result = $this->GetResultByIdCase($resultIdCase);
         return $result;
