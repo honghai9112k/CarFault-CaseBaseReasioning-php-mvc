@@ -73,7 +73,7 @@ class ChuyenDongModel extends DB
         $thuTuCauHoiUser = array(1, 2, 3, 23, 16, 17, 18);
 
         $resultIdCase = 0;
-        $dotuongdongText = 0;
+        $dotuongdongTest = 0;
         foreach ($listIdCase as $k => $val) {
             // $val['idcase'] =50
             $dotuongdong = 0;
@@ -96,15 +96,17 @@ class ChuyenDongModel extends DB
                 }
             }
 
-            if ($dotuongdongText <= $dotuongdong) {
+            if ($dotuongdongTest <= $dotuongdong) {
                 $resultIdCase = $val['idcase'];
-                $dotuongdongText = $dotuongdong;
+                $dotuongdongTest = $dotuongdong;
             }
         }
-        if ($dotuongdongText / 24 < 0.3 ) {
-            return "0";
+        if ($dotuongdongTest / 24 < 0.3) {
+            return false;
         }
         $result = $this->GetResultByIdCase($resultIdCase);
+        $result['dontuongdong']= round(4.123456, 3);
+        $result['idcase']= $resultIdCase;
         return $result;
     }
 }

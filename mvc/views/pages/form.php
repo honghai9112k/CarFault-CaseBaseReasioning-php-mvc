@@ -62,7 +62,7 @@ $cauTraLoiChuyenDong = (!empty($data['CauTraLoiChuyenDong'])) ? $data['CauTraLoi
                 </div>
                 <nav>
                     <div class="nav nav-tabs flex" id="nav-tab" role="tablist">
-                        <button class="nav-link active" style="flex-grow: 1;" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#tabPhanh" type="button" role="tab" aria-controls="tabPhanh" aria-selected="true">Phanh<span class=" text-danger f-12">(4)</span></button>
+                        <button class="nav-link active" style="flex-grow: 1;" id="phanh-tab" data-bs-toggle="tab" data-bs-target="#tabPhanh" type="button" role="tab" aria-controls="tabPhanh" aria-selected="true">Phanh<span class=" text-danger f-12">(4)</span></button>
                         <button class="nav-link" style="flex-grow: 1;" id="dongco-tab" data-bs-toggle="tab" data-bs-target="#tabDongCo" type="button" role="tab" aria-controls="tabDongCo" aria-selected="false">Động Cơ<span class=" text-danger f-12">(5)</span></button>
                         <button class="nav-link" style="flex-grow: 1;" id="dien-tab" data-bs-toggle="tab" data-bs-target="#tabdien" type="button" role="tab" aria-controls="tabdien" aria-selected="false">Điện<span class=" text-danger f-12">(6)</span></button>
                         <button class="nav-link" style="flex-grow: 1;" id="khithai-tab" data-bs-toggle="tab" data-bs-target="#tabkhiThai" type="button" role="tab" aria-controls="tabkhiThai" aria-selected="false">Khí Thải<span class=" text-danger f-12">(1)</span></button>
@@ -73,7 +73,7 @@ $cauTraLoiChuyenDong = (!empty($data['CauTraLoiChuyenDong'])) ? $data['CauTraLoi
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
                     <!-- Tab Phanh -->
-                    <div class="tab-pane  show active" id="tabPhanh" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <div class="tab-pane  show active" id="tabPhanh" role="tabpanel" aria-labelledby="phanh-tab">
                         <div class="tab__content">
                             <div class="input-group d-flex w-64">
                                 <select class="form-select" aria-label="Default select example" id="trieuchungphanh" name="trieuchungphanh">
@@ -328,7 +328,7 @@ $cauTraLoiChuyenDong = (!empty($data['CauTraLoiChuyenDong'])) ? $data['CauTraLoi
                                         </select>
                                         <div class="inputTxt input-group khac-container">
                                             <span class="input-group-text bg-light" id="inputGroup-sizing-default">Khác</span>
-                                            <input id="trieuchungdienkhac4" disabled type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                            <input id="trieuchungdienkhac4" name="trieuchungdienkhac4" disabled type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                                         </div>
                                     </div>
                                 </div>
@@ -373,7 +373,7 @@ $cauTraLoiChuyenDong = (!empty($data['CauTraLoiChuyenDong'])) ? $data['CauTraLoi
                                         </select>
                                         <div class="inputTxt input-group khac-container">
                                             <span class="input-group-text bg-light" id="inputGroup-sizing-default">Khác</span>
-                                            <input id="trieuchungdienkhac6" disabled type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                            <input id="trieuchungdienkhac6" name="trieuchungdienkhac6" disabled type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                                         </div>
                                     </div>
                                 </div>
@@ -525,7 +525,7 @@ $cauTraLoiChuyenDong = (!empty($data['CauTraLoiChuyenDong'])) ? $data['CauTraLoi
                                         </select>
                                         <div class="inputTxt input-group khac-container">
                                             <span class="input-group-text bg-light" id="inputGroup-sizing-default">Khác</span>
-                                            <input disabled id="trieuchungchuyendongkhac4" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                            <input disabled id="trieuchungchuyendongkhac4" name="trieuchungchuyendongkhac4" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                                         </div>
                                     </div>
                                 </div>

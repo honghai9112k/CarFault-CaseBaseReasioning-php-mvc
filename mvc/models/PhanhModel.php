@@ -62,7 +62,7 @@ class PhanhModel extends DB
         $thuTuCauHoiUser = array(1, 2, 3, 4, 5, 6, 7);
 
         $resultIdCase = 0;
-        $dotuongdongText = 0;
+        $dotuongdongTest = 0;
         foreach ($listIdCase as $k => $val) {
             $dotuongdong = 0;
             $casedata = $this->GetCasePhanh($val['idcase']);
@@ -87,16 +87,18 @@ class PhanhModel extends DB
                         }
                     }
                 }
-                if ($dotuongdongText <= $dotuongdong) {//So sánh độ tương đồng các case 
+                if ($dotuongdongTest <= $dotuongdong) {//So sánh độ tương đồng các case 
                     $resultIdCase = $val['idcase'];
-                    $dotuongdongText = $dotuongdong;
+                    $dotuongdongTest = $dotuongdong;
                 }
             }
         }
-        if ($dotuongdongText/24 < 0.5) {
+        if ($dotuongdongTest/24 < 0.5) {
             return false;
         }
         $result = $this->GetResultByIdCase($resultIdCase);
+        $result['dontuongdong']= round($dotuongdongTest/24, 3);
+        $result['idcase']= $resultIdCase;
         return $result;
     }
 }

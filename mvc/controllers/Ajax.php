@@ -2,6 +2,11 @@
 class Ajax extends Controller
 {
     public $phanhmodel;
+    public $dongcomodel;
+    public $dienmodel;
+    public $khithaimodel;
+    public $truyenlucmodel;
+    public $chuyendongmodel;
 
     public function __construct()
     {
@@ -26,19 +31,15 @@ class Ajax extends Controller
         $resultKhac = $_POST['khacBigTxt'];
 
         $resultPhanh = $this->phanhmodel->ResultPhanh($mangText, $mangPhanh);
-
         $resultDongCo = $this->dongcomodel->ResultDongCo($mangText, $mangDongCo);
         $resultDien = $this->dienmodel->ResultDien($mangText, $mangDien);
         $resultKhiThai = $this->khithaimodel->ResultKhiThai($mangText, $mangKhiThai);
         $resultTruyenLuc = $this->truyenlucmodel->ResultTruyenLuc($mangText, $mangTruyenLuc);
         $resultChuyenDong = $this->chuyendongmodel->ResultChuyenDong($mangText, $mangChuyenDong);
 
-        // foreach($mangPhanh as $key => $value) {
-        //     echo $value;
-        // }
-
+        // Lưu vào csdl
         $checklogmodel = $this->logmodel->SaveLog($mangText, $mangPhanh, $mangDongCo, $mangDien, $mangKhiThai, $mangTruyenLuc, $mangChuyenDong, $resultKhac);
-
+        // In kết quả
         require_once "./mvc/views/pages/result.php";
     }
     public function GetError()

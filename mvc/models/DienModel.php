@@ -54,7 +54,7 @@ class DienModel extends DB
         $thuTuCauHoiUser = array(1, 2, 3, 20, 8, 12, 13, 14, 15);
 
         $resultIdCase = 0;
-        $dotuongdongText = 0;
+        $dotuongdongTest = 0;
         foreach ($listIdCase as $k => $val) {
             // $val['idcase'] =32
             $dotuongdong = 0;
@@ -77,15 +77,17 @@ class DienModel extends DB
                 }
             }
 
-            if ($dotuongdongText <= $dotuongdong) {
+            if ($dotuongdongTest <= $dotuongdong) {
                 $resultIdCase = $val['idcase'];
-                $dotuongdongText = $dotuongdong;
+                $dotuongdongTest = $dotuongdong;
             }
         }
-        if ($dotuongdongText/34 < 0.5) {
+        if ($dotuongdongTest/34 < 0.5) {
             return false;
         }
         $result = $this->GetResultByIdCase($resultIdCase);
+        $result['dontuongdong']= round($dotuongdongTest/34, 3);
+        $result['idcase']= $resultIdCase;
         return $result;
     }
 }

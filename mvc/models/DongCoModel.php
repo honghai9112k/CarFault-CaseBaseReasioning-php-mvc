@@ -54,7 +54,7 @@ class DongCoModel extends DB
         $thuTuCauHoiUser = array(1, 2, 3, 19, 8, 9, 10, 11);
 
         $resultIdCase = 0;
-        $dotuongdongText = 0;
+        $dotuongdongTest = 0;
         foreach ($listIdCase as $k => $val) {
             // $val['idcase'] =24
             $dotuongdong = 0;
@@ -77,15 +77,17 @@ class DongCoModel extends DB
                 }
             }
 
-            if ($dotuongdongText <= $dotuongdong) {
+            if ($dotuongdongTest <= $dotuongdong) {
                 $resultIdCase = $val['idcase'];
-                $dotuongdongText = $dotuongdong;
+                $dotuongdongTest = $dotuongdong;
             }
         }
-        if ($dotuongdongText/29 < 0.5) {
+        if ($dotuongdongTest/29 < 0.5) {
             return false;
         }
         $result = $this->GetResultByIdCase($resultIdCase);
+        $result['dontuongdong']= round($dotuongdongTest/29, 3);
+        $result['idcase']= $resultIdCase;
         return $result;
     }
 }
