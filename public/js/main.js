@@ -121,7 +121,6 @@ $(document).ready(function () {
                         var classhethong = ".form-disable-" + data + ">div>select";
                         $(classhethong).addClass("undisable");
                     }, 500);
-
                 });
             })
         }
@@ -192,18 +191,32 @@ function loadCauHoiPhanh() {
     // $("#tuoithophanh").removeAttr('disabled');
     // $("#mucdauphanh").addClass("undisable");
     $(".form-disable-phanh>div>select").addClass("undisable");
+    if ($("#trieuchungphanh").val() == "0") {
+        $(".form-disable-phanh>div>select").removeClass("undisable");
+    }
 }
 
 function loadCauHoiDongCo() {
     $(".form-disable-dongco>div>select").addClass("undisable");
+    if ($("#trieuchungdongco").val() == "0") {
+        $(".form-disable-dongco>div>select").removeClass("undisable");
+    }
 }
 function loadCauHoiDien() {
     $(".form-disable-dien>div>select").addClass("undisable");
     $(".input-dien-container").removeClass("disable");
+    if ($("#trieuchungdien").val() == "0") {
+        $(".form-disable-dien>div>select").removeClass("undisable");
+        $(".input-dien-container").addClass("disable");
+    }
 }
 function loadCauHoiChuyenDong() {
     $(".form-disable-chuyendong>div>select").addClass("undisable");
     $(".input-chuyendong-container").removeClass("disable");
+    if ($("#trieuchungchuyendong").val() == "0") {
+        $(".form-disable-chuyendong>div>select").removeClass("undisable");
+        $(".input-chuyendong-container").addClass("disable");
+    }
 }
 
 

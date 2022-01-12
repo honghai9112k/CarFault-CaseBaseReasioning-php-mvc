@@ -39,6 +39,7 @@ class Ajax extends Controller
 
         // Lưu vào csdl
         $checklogmodel = $this->logmodel->SaveLog($mangText, $mangPhanh, $mangDongCo, $mangDien, $mangKhiThai, $mangTruyenLuc, $mangChuyenDong, $resultKhac);
+        // echo $checklogmodel ;
         // In kết quả
         require_once "./mvc/views/pages/result.php";
     }
