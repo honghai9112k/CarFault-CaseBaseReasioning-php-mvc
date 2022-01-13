@@ -42,6 +42,7 @@ $resultChuyenDongArray = (!empty($resultChuyenDong)) ? $resultChuyenDong : [];
         <h4 class="text-result-header">Hệ Thống Khí Thải</h4>
         <p class="text-result">Nguyên Nhân hỏng: <?php echo $resultKhiThaiArray['nguyenhan'] ?> </p>
         <p class="text-result">Cách sửa chữa: <?php echo $resultKhiThaiArray['suachua'] ?> </p>
+        <p class="text-result">Độ chính xác: <?php echo $resultKhiThaiArray['dontuongdong']*100 ?>%</p>
     </div>
 <?php } ?>
 
