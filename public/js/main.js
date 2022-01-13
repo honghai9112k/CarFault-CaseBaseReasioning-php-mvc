@@ -120,6 +120,7 @@ $(document).ready(function () {
                     setTimeout(function () {
                         var classhethong = ".form-disable-" + data + ">div>select";
                         $(classhethong).addClass("undisable");
+                        $(".input-"+data+"-container").removeClass("disable");
                     }, 500);
                 });
             })

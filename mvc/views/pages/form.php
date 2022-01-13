@@ -14,7 +14,7 @@ $cauTraLoiChuyenDong = (!empty($data['CauTraLoiChuyenDong'])) ? $data['CauTraLoi
 <div class="form-container">
     <form method="POST" id="form" class="form" enctype="multipart/form-data" role="form" action="">
         <div class=" cauhoi-container">
-
+            
             <div class="thongtin">
                 <div class="header-text">
                     <h2 class="thongtin-header-text">Thông tin</h2>
@@ -55,6 +55,7 @@ $cauTraLoiChuyenDong = (!empty($data['CauTraLoiChuyenDong'])) ? $data['CauTraLoi
                     </select>
                 </div>
             </div>
+
             <div class="hethong">
                 <div class="header-text">
                     <h2 class="thongtin-header-text">Hệ thống</h2>
@@ -541,6 +542,7 @@ $cauTraLoiChuyenDong = (!empty($data['CauTraLoiChuyenDong'])) ? $data['CauTraLoi
                     </div>
                 </div>
             </div>
+
         </div>
         <div class="khac-error-container"><span class=" text-danger f-12">*Nếu xe của bạn gặp những lỗi khác, vui lòng điền vào mục khác để hệ thống cải thiện trong thời gian tới..</span></div>
         <div class="d-grid gap-2 col-6 mx-auto btn-container">

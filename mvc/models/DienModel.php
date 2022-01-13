@@ -82,9 +82,11 @@ class DienModel extends DB
                 $dotuongdongTest = $dotuongdong;
             }
         }
-        if ($dotuongdongTest/34 < 0.5) {
-            return false;
-        }
+        // if ($dotuongdongTest/34 < 0.5) {
+        //     $a = array(0,)
+        //     return false;
+        // }
+        
         $result = $this->GetResultByIdCase($resultIdCase);
         $result['dontuongdong']= round($dotuongdongTest/34, 3);
         $result['idcase']= $resultIdCase;

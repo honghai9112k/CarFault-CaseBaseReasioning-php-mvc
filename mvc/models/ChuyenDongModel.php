@@ -101,11 +101,11 @@ class ChuyenDongModel extends DB
                 $dotuongdongTest = $dotuongdong;
             }
         }
-        if ($dotuongdongTest / 24 < 0.3) {
-            return false;
-        }
+        // if ($dotuongdongTest / 24 < 0.3) {
+        //     return false;
+        // }
         $result = $this->GetResultByIdCase($resultIdCase);
-        $result['dontuongdong']= round(4.123456, 3);
+        $result['dontuongdong']= round($dotuongdongTest/24, 3);
         $result['idcase']= $resultIdCase;
         return $result;
     }

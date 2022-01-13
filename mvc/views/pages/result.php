@@ -12,24 +12,17 @@ $resultChuyenDongArray = (!empty($resultChuyenDong)) ? $resultChuyenDong : [];
         <h4 class="text-result-header">Hệ Thống Phanh</h4>
         <p class="text-result">Nguyên Nhân hỏng: <?php echo $resultPhanhArray['nguyenhan'] ?></p>
         <p class="text-result">Cách sửa chữa: <?php echo $resultPhanhArray['suachua'] ?></p>
+        <p class="text-result">Độ chính xác: <?php echo $resultPhanhArray['dontuongdong']*100 ?>%</p>
     </div>
-<?php } else if ($resultPhanh==false && $mangPhanh[0]!="0") {?>
-    <div class="result-phanh-container">
-        <h4 class="text-result-header">Hệ Thống Phanh</h4>
-        <p class="text-result">Lỗi của bạn chưa có trong hệ thống và sẽ được chuyên gia cập nhật trong thời gian tới.</p>
-    </div>
-<?php } ?>
+<?php }  ?>
 
 <?php if (!empty($resultDongCo)&& $mangDongCo[0]!="0") { ?>
     <div class="result-dongco-container">
         <h4 class="text-result-header">Hệ Thống Động cơ</h4>
         <p class="text-result">Nguyên Nhân hỏng: <?php echo $resultDongCoArray['nguyenhan'] ?></p>
         <p class="text-result">Cách sửa chữa: <?php echo $resultDongCoArray['suachua'] ?></p>
-    </div>
-<?php } else if ($resultDongCo==false && $mangDongCo[0]!="0") {?>
-    <div class="result-dongco-container">
-        <h4 class="text-result-header">Hệ Thống Động Cơ</h4>
-        <p class="text-result">Lỗi của bạn chưa có trong hệ thống và sẽ được chuyên gia cập nhật trong thời gian tới.</p>
+        <p class="text-result">Độ chính xác: <?php echo $resultDongCoArray['dontuongdong']*100 ?>%</p>
+
     </div>
 <?php } ?>
 
@@ -39,11 +32,7 @@ $resultChuyenDongArray = (!empty($resultChuyenDong)) ? $resultChuyenDong : [];
         <h4 class="text-result-header">Hệ Thống Điện</h4>
         <p class="text-result">Nguyên Nhân hỏng: <?php echo $resultDienArray['nguyenhan'] ?> </p>
         <p class="text-result">Cách sửa chữa: <?php echo $resultDienArray['suachua'] ?></p>
-    </div>
-<?php } else if ($resultDien==false && $mangDien[0]!="0") {?>
-    <div class="result-dien-container">
-        <h4 class="text-result-header">Hệ Thống Điện</h4>
-        <p class="text-result">Lỗi của bạn chưa có trong hệ thống và sẽ được chuyên gia cập nhật trong thời gian tới.</p>
+        <p class="text-result">Độ chính xác: <?php echo $resultDienArray['dontuongdong']*100 ?>%</p>
     </div>
 <?php } ?>
 
@@ -54,11 +43,6 @@ $resultChuyenDongArray = (!empty($resultChuyenDong)) ? $resultChuyenDong : [];
         <p class="text-result">Nguyên Nhân hỏng: <?php echo $resultKhiThaiArray['nguyenhan'] ?> </p>
         <p class="text-result">Cách sửa chữa: <?php echo $resultKhiThaiArray['suachua'] ?> </p>
     </div>
-<?php } else if ($resultKhiThai==false && $mangKhiThai[0]!="0") {?>
-    <div class="result-khithai-container">
-        <h4 class="text-result-header">Hệ Thống Khí Thải</h4>
-        <p class="text-result">Lỗi của bạn chưa có trong hệ thống và sẽ được chuyên gia cập nhật trong thời gian tới.</p>
-    </div>
 <?php } ?>
 
 <!-- Truyền Lực -->
@@ -67,11 +51,8 @@ $resultChuyenDongArray = (!empty($resultChuyenDong)) ? $resultChuyenDong : [];
         <h4 class="text-result-header">Hệ Thống Truyền Lực</h4>
         <p class="text-result">Nguyên Nhân hỏng: <?php echo $resultTruyenLucArray['nguyenhan'] ?> </p>
         <p class="text-result">Cách sửa chữa: <?php echo $resultTruyenLucArray['suachua'] ?></p>
-    </div>
-<?php } else if ($resultTruyenLuc==false && $mangTruyenLuc[0]!="0") {?>
-    <div class="result-truyenluc-container">
-        <h4 class="text-result-header">Hệ Thống Truyền Lực</h4>
-        <p class="text-result">Lỗi của bạn chưa có trong hệ thống và sẽ được chuyên gia cập nhật trong thời gian tới.</p>
+        <p class="text-result">Độ chính xác: <?php echo $resultTruyenLucArray['dontuongdong']*100 ?>%</p>
+
     </div>
 <?php } ?>
 
@@ -81,11 +62,8 @@ $resultChuyenDongArray = (!empty($resultChuyenDong)) ? $resultChuyenDong : [];
         <h4 class="text-result-header">Hệ Thống Chuyển Động</h4>
         <p class="text-result">Nguyên Nhân hỏng: <?php echo $resultChuyenDongArray['nguyenhan'] ?></p>
         <p class="text-result">Cách sửa chữa: <?php echo $resultChuyenDongArray['suachua'] ?></p>
-    </div>
-<?php } else if ($resultChuyenDong==false && $mangChuyenDong[0]!="0") {?>
-    <div class="result-chuyendong-container">
-        <h4 class="text-result-header">Hệ Thống Chuyển Động</h4>
-        <p class="text-result">Lỗi của bạn chưa có trong hệ thống và sẽ được chuyên gia cập nhật trong thời gian tới.</p>
+        <p class="text-result">Độ chính xác: <?php echo $resultChuyenDongArray['dontuongdong']*100?>%</p>
+
     </div>
 <?php } ?>
 

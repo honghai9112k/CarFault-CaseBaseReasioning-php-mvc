@@ -93,9 +93,9 @@ class PhanhModel extends DB
                 }
             }
         }
-        if ($dotuongdongTest/24 < 0.5) {
-            return false;
-        }
+        // if ($dotuongdongTest/24 < 0.5) {
+        //     return false;
+        // }
         $result = $this->GetResultByIdCase($resultIdCase);
         $result['dontuongdong']= round($dotuongdongTest/24, 3);
         $result['idcase']= $resultIdCase;

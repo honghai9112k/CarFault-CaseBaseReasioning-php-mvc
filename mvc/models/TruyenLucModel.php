@@ -81,9 +81,9 @@ class TruyenLucModel extends DB{
                 $dotuongdongTest = $dotuongdong;
             }
         }
-        if ($dotuongdongTest/9 < 0.5) {
-            return false;
-        }
+        // if ($dotuongdongTest/9 < 0.5) {
+        //     return false;
+        // }
         $result = $this->GetResultByIdCase($resultIdCase);
         $result['dontuongdong']= round($dotuongdongTest/9, 3);
         $result['idcase']= $resultIdCase;

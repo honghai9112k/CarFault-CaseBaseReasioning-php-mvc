@@ -82,9 +82,9 @@ class DongCoModel extends DB
                 $dotuongdongTest = $dotuongdong;
             }
         }
-        if ($dotuongdongTest/29 < 0.5) {
-            return false;
-        }
+        // if ($dotuongdongTest/29 < 0.5) {
+        //     return false;
+        // }
         $result = $this->GetResultByIdCase($resultIdCase);
         $result['dontuongdong']= round($dotuongdongTest/29, 3);
         $result['idcase']= $resultIdCase;
